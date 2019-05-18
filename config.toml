@@ -1,0 +1,9 @@
+# Landing page for plastic love
+base_url = "https://zypeh.github.io/plastic-love"
+
+compile_sass = true
+title = "Plastic Love the theme"
+description = "When City pop is not enough, plastic love is there for you"
+
+[extra]
+main_lang = "en"

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ config.extra.main_lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <link rel="stylesheet" href="{{ get_url(path="x.css") | safe }}">
+
+    {% if config.generate_rss %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+    {% endif %}
+
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <main role="main">
+                {% block content %}
+                    <div class="posts">
+                        {% for page in section.pages | reverse %}
+                          <div class="post">
+                            <h1 class="post-title">
+                              <a href="{{ page.permalink }}">
+                                {{ page.title }}
+                              </a>
+                            </h1>
+    
+                            <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+                          </div>
+                        {% endfor %}
+                    </div>
+                {% endblock content %}
+            </main>
+        </div>
+    </div>
+</body>
+</html>
