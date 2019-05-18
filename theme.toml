@@ -6,6 +6,3 @@ license = "BSD-2-Clause"
 [author]
 name = "Zhengyan Peh (zypeh)"
 homepage = "https://zypeh.github.io"
-
-[extra]
-main_lang = "en"

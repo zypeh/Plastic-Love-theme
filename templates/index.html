@@ -6,33 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <link rel="stylesheet" href="{{ get_url(path="x.css") | safe }}">
+    <style>
+      :root {
+        --bg-color: #fff;
+        --fg-color: #1b1b1c;
+        --additional-color-a: #384045;
+        --additional-color-b: #00cc80;
+        --additional-color-c: #2c3e50;
+      }
+    </style>
 
     {% if config.generate_rss %}
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
     {% endif %}
-
 </head>
+
 <body>
-    <div class="container">
-        <div class="wrapper">
-            <main role="main">
-                {% block content %}
-                    <div class="posts">
-                        {% for page in section.pages | reverse %}
-                          <div class="post">
-                            <h1 class="post-title">
-                              <a href="{{ page.permalink }}">
-                                {{ page.title }}
-                              </a>
-                            </h1>
-    
-                            <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
-                          </div>
-                        {% endfor %}
-                    </div>
-                {% endblock content %}
-            </main>
+  <div class="container">
+    <div class="wrapper">
+      <main role="main">
+        <div class="content">
+          {% block content %}
+          <header>Articles</header>
+            <ul class="item-list">
+              {% for page in section.pages | reverse %}
+              <li>
+                <h2><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+                <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                <p>{{ page.description | safe }}</p>
+              </li>
+              {% endfor %}
+            </ul>
+          {% endblock content %}
         </div>
+      </main>
     </div>
+  </div>
 </body>
 </html>

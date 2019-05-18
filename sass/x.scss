@@ -1,0 +1,157 @@
+@import "mixins";
+@import "variables";
+@import "reset";
+
+@import "layout";
+
+html {
+    font-size: 1rem;
+    text-size-adjust: none;
+    text-rendering: optimizeLegibility;
+    image-rendering: auto;
+
+    background: $background-color;
+}
+
+::selection {
+    color: $additional-color-b;
+}
+
+body {
+    margin: 0 auto;
+    color: $foreground-color;
+    font: $font-size/1.2 $fontstack-sans-serif;
+
+    @media handheld,
+    only screen and (max-width: $breakpoint-md),
+    only screen and (max-device-width: $breakpoint-md) {
+        font-size: ($font-size * 1.4);
+    }
+
+    @media handheld,
+    only screen and (max-width: $breakpoint-md),
+    only screen and (max-device-width: $breakpoint-md) {
+        font-size: ($font-size * 2.4);
+    }
+
+    @media handheld,
+    only screen and (max-width: $breakpoint-xs),
+    only screen and (max-device-width: $breakpoint-xs) {
+        font-size: ($font-size * 3.2);
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 10vmin 0 1rem;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+p, h6 {
+    line-height: 1.7;
+    hyphens: auto;
+    margin: 4vmin 0;
+}
+
+a {
+    // color: $link-color;
+    // text-decoration: underline;
+    color: $foreground-color;
+    text-decoration: none;
+    border-bottom: 1px solid $foreground-color;
+
+    &:hover {
+        background-position: 0 calc(100% - 1px);
+        background-size: auto 3px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='Squiggle-svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.st0{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-50%);}}%3C/style%3E%3Cpath fill='none' stroke='%23000' stroke-width='1' class='st0' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+        padding-bottom: 3px;
+        background-repeat: repeat-x;
+        border: 0;
+        text-decoration: none;
+    }
+}
+
+h1.super { font-size: 3rem; font-weight: bold; }
+h1 { font-size: 1.8rem; font-weight: bold; }
+h2 { font-size: 1.4rem; font-weight: normal; }
+h3 { font-size: 1.2rem; font-weight: 600; }
+h4, h5 { opacity: .5; font-size: 0.94rem; }
+
+ul, ol {
+    margin-top: 1.2rem;
+    margin-bottom: 1.8rem;
+    list-style: none;
+    counter-reset: list;
+
+    li {
+        &:before {
+            line-height: 1.7em;
+            position: absolute;
+            display: inline-block;
+            width: 4em;
+            margin: 0 0 0 -4em;
+            text-align: right;
+            opacity: .6;
+            pointer-events: none;
+        }
+
+        > ul, > ol  {
+            margin-top: 1vmin;
+            margin-bottom: 0;
+        }
+    }
+}
+
+header {
+    #title {
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+    }
+    #description {
+        p {
+            font-size: 1.3rem;
+            line-height: 1.4em;
+        }
+    }
+}
+
+time {
+    font-size: 85%;
+    color: #777;
+}
+
+@media handheld,
+only screen and (max-width: $breakpoint-md),
+only screen and (max-width: $breakpoint-md) {
+    .content {
+        article {
+            p, ul, figure {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media handheld,
+only screen and (max-width: $breakpoint-sm),
+only screen and (max-width: $breakpoint-sm) {
+    .content {
+        article {
+            p, ul, figure {
+                font-size: 0.86rem;
+            }
+        }
+        #description p {
+            font-size: 1.1rem;
+        }
+        #title h1 {
+            font-size: 2rem;
+        }
+        #description p {
+            font-size: 1rem;
+        }
+    }
+}

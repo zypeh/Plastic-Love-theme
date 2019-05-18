@@ -1,0 +1,22 @@
+$fontstack-prefix: -apple-system, BlinkMacSystemFont;
+$fontstack-sans-serif: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Heletica Neue", sans-serif;
+$fontstack-serif: Georgia, serif;
+$fontstack-monospace: monospace;
+
+$fontstack-default: $fontstack-prefix, $fontstack-sans-serif;
+$font-size: 1.2rem;
+$font-feature: "case", "ss01", "ss02";
+
+/* color options */
+$background-color: v(bg-color);
+$foreground-color: v(fg-color);
+$additional-color-a: v(additional-color-a);
+$additional-color-b: v(additional-color-b);
+$additional-color-c: v(additional-color-c);
+
+/* breakpoints */
+$breakpoint-lg: 1600px;
+$breakpoint-md: 1024px;
+$breakpoint-sm: 768px;
+$breakpoint-xs: 400px;
+$breakpoint-default: $breakpoint-md;
