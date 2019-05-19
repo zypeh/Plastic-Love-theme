@@ -24,10 +24,15 @@
 <body>
   <div class="container">
     <div class="wrapper">
+
+      <div class="side-nav">
+        <div class="side-nav-inner"></div>
+      </div>
+
       <main role="main">
         <div class="content">
           {% block content %}
-          <header>Articles</header>
+          <header><h1 class="super">Articles</h1></header>
             <ul class="item-list">
               {% for page in section.pages | reverse %}
               <li>
